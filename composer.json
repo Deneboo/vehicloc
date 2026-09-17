@@ -76,6 +76,7 @@
         "symfony/polyfill-php84": "*"
     },
     "scripts": {
+        "start": "docker compose up -d && symfony serve -d",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
