@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="fleet">
+        <h2>Découvrez la flotte de véhicules chez Véhicloc</h2>
+        <p>Que vous ayez besoin d'une petite citadine agile, d'une berline élégante ou même d'un SUV spacieux, nous avons une variété de véhicules  pour répondre à vos exigences.</p>
+        <ul>
+            <div class="fleet-list">
+                {% for car in cars %}
+                    <li>
+                        <article>
+                            <div class="mini-car-title">
+                                <a href="car.html">
+                                    <h3>{{ car.name}}</h3>
+                                    <p>ou similaire | Saint-Étienne</p>
+                                </a>
+                                <div>
+                                    <a href="#"><img src="assets/icons/trash.png" alt="Supprimer" /></a>
+                                </div>
+                            </div>
+                            <div class="mini-car-icons">
+                                <div>
+                                    <img src="assets/icons/persons.png" alt="4 places" />
+                                    <p>{{ car.places}} places</p>
+                                </div>
+                                <div>
+                                    <img src="assets/icons/motor.png" alt="Manuelle" />
+                                    <p>{{ car.motor }}</p>
+                                </div>
+                                <div>
+                                    <img src="assets/icons/km.png" alt="km illimités" />
+                                    <p>Km illimités</p>
+                                </div>
+                                <div>
+                                    <img src="assets/icons/plus.png" alt="PLus" />
+                                    <p>Plus</p>
+                                </div>
+                            </div>
+                            <div class="mini-car-price">
+                                <p class="price-per-day">{{ car.dailyPrice }} € / jour</p>
+                                <p class="price-per-month">{{ car.monthlyPrice }} € / mois</p>
+                            </div>
+                        </article>
+                    </li>
+                {% endfor %}
+            </div>  
+        </ul>
+    </section> 
+    <section id="promises">
+        <div>
+            <h2>La promesse Véhicloc</h2>
+            <div class="promise">
+                <img src="assets/icons/insurance.png" alt="Assurance et Assistance">
+                <div class="promise-text">
+                    <h3>Assurance et Assistance</h3>
+                    <p>Votre tranquillité d'esprit est notre priorité. Toutes nos locations mensuelles incluent une assurance complète et une assistance routière, pour garantir une conduite en toute sécurité.</p>
+                </div>
+            </div>
+            <div class="promise">
+                <img src="assets/icons/booking.png" alt="Réservation facile">
+                <div class="promise-text">
+                    <h3>Réservation facile</h3>
+                    <p>Notre plateforme vous permet de réserver votre voiture en quelques clics. Sélectionnez vos dates, choisissez le modèle qui vous convient et finalisez votre réservation en un rien de temps.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="assets/img/promise.png" alt="La promesse Véhicloc">
+        </div>
+    </section>
+{% endblock %}
