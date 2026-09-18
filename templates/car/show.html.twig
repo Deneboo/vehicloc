@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="car">
+        <a href="{{ path('app_car')}}">← Retour</a>
+        <h1>{{ car.name }} ({{ car.motor }})</h1>
+        
+        <p class="description-car">{{ car.description}}</p>
+        
+        <div class="advantages">
+            <div class="single-advantage"><img src="assets/icons/checked.png" alt="" /> Km illimités</div>
+            <div class="single-advantage"><img src="assets/icons/checked.png" alt="" /> Taxe routière incluse</div>
+            <div class="single-advantage"><img src="assets/icons/checked.png" alt="" /> Assistance dépannage 24/7</div>
+            <div class="single-advantage"><img src="assets/icons/checked.png" alt="" /> Pas de frais caché</div>
+            <div class="single-advantage"><img src="assets/icons/checked.png" alt="" /> Assurance au tiers</div>
+            <div class="single-advantage"><img src="assets/icons/checked.png" alt="" /> Réservation sécurisée</div>
+        </div>
+        
+        <hr>
+    
+        <p class="legal-information">Les conducteurs doivent avoir leur permis de conduire depuis au moins 5 ans.</p>
+        
+        <div class="total-rent">
+            <span>Total</span>
+            <span>{{ car.monthlyPrice }} €/mois</span>
+        </div>
+        <button class="btn-add">Louer pour {{ car.monthlyPrice }}€/mois</button> <!-- Bouton inactif -->
+    </section>
+    <section id="insurances">
+        <h2>Les Assurances et Assistances</h2>
+        
+        <div class="insurances-list">
+            <div class="single-insurance">
+                <img src="{{ asset('assets/icons/basic.png') }}" alt="Basique" />
+                <h3>Protection Basique</h3>
+                <p><img src="{{ asset('assets/icons/checked.png') }}" alt="" /> Assurance dommages pour les dommages par collision, les rayures, les chocs et le vol.</p>
+            </div>
+            <div class="single-insurance">
+                <img src="{{ asset('assets/icons/complete.png') }}" alt="Complète" />
+                <h3>Protection Complète</h3>
+                <p><img src="{{ asset('assets/icons/checked.png') }}" alt="" /> Assurance dommages pour les dommages par collision, les rayures, les chocs et le vol.</p>
+                <p><img src="{{ asset('assets/icons/checked.png') }}" alt="" /> Protection pneus et vitres.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
