@@ -10,7 +10,7 @@
                     <li>
                         <article>
                             <div class="mini-car-title">
-                                <a href="car.html">
+                                <a href="{{ path('app_car_show', {id: car.id}) }}">
                                     <h3>{{ car.name}}</h3>
                                     <p>ou similaire | Saint-Étienne</p>
                                 </a>
@@ -40,7 +40,7 @@
                                 <p class="price-per-day">{{ car.dailyPrice }} € / jour</p>
                                 <p class="price-per-month">{{ car.monthlyPrice }} € / mois</p>
                             </div>
-                        </article>
+                        </article>   
                     </li>
                 {% endfor %}
             </div>  
