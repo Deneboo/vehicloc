@@ -3,6 +3,7 @@
 namespace App\Factory;
 
 use App\Entity\Car;
+use App\Enum\CarMotor;
 use Zenstruck\Foundry\Persistence\PersistentObjectFactory;
 
 /**
@@ -45,13 +46,8 @@ final class CarFactory extends PersistentObjectFactory
             'description' => self::faker()->sentence(15),
             'daily_price' => self::faker()->randomFloat(2, 30, 150),
             'monthly_price' => self::faker()->randomFloat(2, 500, 2000),
-            'motor' => self::faker()->randomElement([
-                'Essence',
-                'Diesel',
-                'Hybride',
-                'Électrique',
-            ]),
-            'places' => self::faker()->numberBetween(2, 9),
+            'motor' => self::faker()->randomElement(CarMotor::cases()),
+            'places' => self::faker()->numberBetween(1, 9),
         ];
     }
 

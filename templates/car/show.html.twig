@@ -3,7 +3,7 @@
 {% block body %}
     <section id="car">
         <a href="{{ path('app_car')}}">← Retour</a>
-        <h1>{{ car.name }} ({{ car.motor }})</h1>
+        <h1>{{ car.name }} ({{ car.motor.getLabel() }})</h1>
         
         <p class="description-car">{{ car.description}}</p>
         
