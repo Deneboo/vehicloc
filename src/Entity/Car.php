@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use App\Enum\CarMotor;
 use App\Repository\CarRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
@@ -15,22 +17,39 @@ class Car
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank]
     private ?string $description = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
+    #[Assert\NotBlank]
+    #[Assert\Positive]
+    #[Assert\Type(
+        type: 'numeric',
+        message: 'Veuillez saisir un nombre.'
+    )]
     private ?float $monthly_price = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
+    #[Assert\NotBlank]
+    #[Assert\Positive]
+    #[Assert\Type(
+        type: 'numeric',
+        message: 'Veuillez saisir un nombre.'
+    )]
     private ?float $daily_price = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Range(min: 1, max: 9)]
     private ?int $places = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $motor = null;
+    #[ORM\Column(length: 255, enumType: CarMotor::class)]
+    #[Assert\NotBlank]
+    private ?CarMotor $motor = null;
 
     public function getId(): ?int
     {
@@ -97,12 +116,12 @@ class Car
         return $this;
     }
 
-    public function getMotor(): ?string
+    public function getMotor(): ?CarMotor
     {
         return $this->motor;
     }
 
-    public function setMotor(string $motor): static
+    public function setMotor(CarMotor $motor): static
     {
         $this->motor = $motor;
 
